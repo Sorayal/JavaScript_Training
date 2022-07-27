@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="DE">
+<head>
+    <meta charset="utf-8">
+    <title>Apply JavaScript example</title>
+</head>
+<body>
+<button>Create Paragraph</button>
+<button id="delete">Reset</button>
+
+<script>
+
+
+    function createParagraph() {
+        let para = document.createElement('p');
+        para.textContent = 'You clicked the button!';
+        document.body.appendChild(para);
+    }
+
+    let buttons = document.querySelectorAll('button');
+
+    for(let i = 0; i < buttons.length ; i++){
+        buttons[i].addEventListener('click', createParagraph);
+    }
+
+    function DeleteAllParagraphs(){
+        let paragraphs = document.querySelectorAll('p');
+
+        for(let i = 0; i < paragraphs.length ; i++){
+            paragraphs[i].innerHTML = "";
+            document.body.removeChild(paragraphs[i]);
+        }
+    }
+
+    let deleteButton = document.getElementById("delete");
+    deleteButton.addEventListener('click', DeleteAllParagraphs);
+
+</script>
+</body>
+</html>

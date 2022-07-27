@@ -1,0 +1,64 @@
+<!Doctype HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="\jquery\jquery-3.6.0.js"></script>
+  <title>Javascript Tests</title>
+</head>
+<body>
+<main>
+  <h1>Javascript Tests mit JQuery und Vanilla Javascript</h1>
+  <button id="button1">Verstecken mit Callback</button>
+  <button id="button2">Verstecken ohne Callback</button>
+  <p class="test"></p>
+  <p id="demo"></p>
+  <p id="versteckmich">DoppelklickVerschwindibus</p>
+  <button id="mousedown">Mousedown!!</button>
+
+  <label for="namenseingabe">Eingabe</label>
+  <input id="namenseingabe" maxlength="10">
+
+  <script>
+    //const result = document.querySelector('.result');
+    let a = 33;
+    let b = -0;
+    let result = a/b;
+
+    var elements = document.getElementsByClassName("test");     //Wichtig ist die richtige Angabe, nicht getElementsByClass sondern getElementsByClassName!!!
+    elements[0].innerHTML = result;                             //Nimmmt das erste Element aus der HTML Collection und verändert es.
+
+    document.getElementById("demo").innerHTML = result;
+
+    //Funktion mit Callback , die AlertBox wird erst angezeigt, wenn die Texte verschwunden sind.
+    $("#button1").click(function(){
+      $("p").hide("slow", function(){
+        alert("Text ist versteckt.");
+      });
+    });
+
+    //Funktion ohne Callback , die Alertbox ist sofort da, obwohl der Hide Effekt noch nicht durch ist.
+    $("#button2").click(function(){
+      $("p").hide(1000);
+      alert("Die Texte sind nun versteckt.");
+    });
+
+    //Versteckt den ausgewählten Text beim Doppelklick darauf.
+    $("#versteckmich").dblclick(function(){
+      $(this).hide();
+    });
+
+    // DAs Aktion wird ausgeführt, wenn der linke, rechte oder mittlere Mausbutton bei diesem Element gedrückt wird.
+    $("#mousedown").mousedown(function(){
+      alert("Fuuuuu!!!!");
+    });
+
+    //Das Eingabefeld wird gerötet, wenn man es wieder verlässt.
+    $("#namenseingabe").mouseleave(function(){
+      $("#namenseingabe").css("background-color", "Red");
+    });
+
+  </script>
+</main>
+</body>
+</html>

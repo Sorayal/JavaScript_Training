@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Simple Animation with JQuery</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    // Ein Quadrat wird bewegt, zusätzlich wird der Button während des Effektes ausgegraut
+    // Via Callbackfunktion wird der Button wieder zurückgesetzt
+    $(document).ready(function(){
+      $("button").click(function(){
+        $("button").prop("disabled",true);
+        for(var i = 0; i< 2; i++){
+          $("div").animate({top: '250px'})
+                  .animate({left: '250px'})
+                  .animate({top: '500px'})
+                  .animate({left: '0px'});
+        }
+        $("div").animate({top: '100px'},function(){
+          $("button").removeAttr("disabled");
+        });
+
+      })
+    });
+  </script>
+</head>
+<body>
+
+<button>Start Animation</button>
+
+<p>By default, all HTML elements have a static position, and cannot be moved. To manipulate the position, remember to first set the CSS position property of the element to relative, fixed, or absolute!</p>
+
+<div style="background:#98bf21;height:100px;width:100px;position:absolute;"></div>
+
+</body>
+</html>
