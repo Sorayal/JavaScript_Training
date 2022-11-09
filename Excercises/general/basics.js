@@ -4,6 +4,9 @@
 /*This can be a multiline
 comment */
 
+// The Typesystem of JavaScript is dynamic and relates to the actual given value.
+// At runtime the datatype of a variable can change unlike Java where variables
+// have a static datatype.
 /* datatypes of JavaScript
 1. undefined  // will be passed by value
 2. null // value
@@ -11,7 +14,7 @@ comment */
 4. string // value
 5. symbol //value datatype
 6. bigint // value
-7. number  // value
+7. number  // value (it´s saved as double, so a float with double precision)
 8. function // reference datatype
 8. object // reference datatype
 9. array // reference datatype
@@ -23,19 +26,21 @@ comment */
 
 //Deklaring variables
 var surName;
+
+// let is the current variant, var won´t be used really anymore
 let fullName;
 
 // Initialize them
 surName = "Peter";
 fullName = "Peter Müller";
 
-const players = ["Sam","Sarah","Ryan","Poppy"];
+const players = ["Sam", "Sarah", "Ryan", "Poppy"];
 const teams = players;
 console.log(players, teams);
 players[3] = "Blaubart";
 console.log("\n");
 console.log(players, teams);
-console.log("*******")
+console.log("*******");
 
 // Incrementing and Decrementing numbers
 let a = 30;
@@ -45,23 +50,27 @@ a++;
 b--;
 console.log(a); //31
 console.log(b); //29
-console.log("*******")
+console.log("*******");
 
 // Compound Assignment
-a +=4;
-b -=5;
+a += 4;
+b -= 5;
 console.log(a); //35
 console.log(b); //24
-console.log("*******")
+console.log("*******");
 
 // strings
 let firstString = "It´s the first";
 let secondString = "time ever";
 // Escape Sequence
-let escapeString = "I am an \"escaped string\"";
+let escapeString = 'I am an "escaped string"';
 // Combination of one quoted and double quoted string
 let aTagExample = '<a href="http://www.example.com" target="_blank">Link</a>';
 console.log(aTagExample);
+
+// Template strings
+let pi = 3.141;
+console.log(`The value for PI is: ${pi}`);
 
 // Concate strings and variables
 let adjective = "fun!";
@@ -69,12 +78,9 @@ let programmerString = "Learning to code is ";
 programmerString += adjective;
 console.log("Hello " + programmerString + "\n+++++++++++++++++++++\n");
 
-
-
-
 // Functions
-function hello(){
-    return "Hello Universe!";
+function hello() {
+  return "Hello Universe!";
 }
 
 console.log(hello()); // calls the function
